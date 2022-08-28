@@ -1,0 +1,43 @@
+For any of these tests, you are not allowed to change/create/delete any scene game object. Only write code as requirement allows you to.  
+
+
+
+Test 01 - Rect Corners
+-----------------
+- Rectangle is rotated using the slider
+- Clicking the "Update" button updates the A, B, C, D labels in each of the corner
+
+Requirement: 
+- Implement the "FindPoints" function inside "RectCorners.cs" file to find the corners of the Rectangle.
+
+
+
+Test 02 - Point Inside Rect
+----------------------
+- If the mouse cursor is inside the rectangle the line color is changed
+
+Requirement:
+- Implement the "CheckIfInsideRect" function inside "RectContains.cs" file to check if mouse position is inside the rectangle.
+
+
+
+Test 03 - Rotate Around
+------------------
+- Small yellow circle is always orbiting one of the larger circles. 
+- If the yellow circle is within the union of the green and red circle's white radius zone, it can change it's orbitor if the mouse is clicked at that time. 
+- The yellow circle is always maintaining its rotation direction while changing orbitor. 
+
+Requirement:
+- Implement "ChangeAttractor" and "KeepRotating" function inside "Orbiter.cs" file to maintain the rotation functionality
+
+
+
+Test 04 - Chain IK
+-------------
+- Drag on the screen to move the red circle which is the target point for the IK
+
+
+Requirement:
+- Implement the "ChainIK" class to achieve the desire effect
+- Do not use any third party IK system. You have to write one yourself.
+- Do not change or create new scene game object. You should only write code.
