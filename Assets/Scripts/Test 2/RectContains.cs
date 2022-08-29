@@ -40,7 +40,44 @@ public class RectContains : MonoBehaviour
     private bool CheckIfInsideRect(Vector2 posA, Vector2 posB, Vector2 posC, Vector2 posD, Vector2 positionToCheck)
     {
         // TODO: Implement this function
-        
+
+        //---------Anzamul Haque Akash-----------------------------Start
+        static float area(float x1, float y1, float x2, float y2, float x3, float y3)
+        {
+            return (float)Math.Abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
+        }
+
+        static bool check(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, float x, float y)
+        {
+
+            // Calculate area of rectangle ABCD
+            float A = area(x1, y1, x2, y2, x3, y3) + area(x1, y1, x4, y4, x3, y3);
+
+            // Calculate area of triangle PAB
+            float A1 = area(x, y, x1, y1, x2, y2);
+
+            // Calculate area of triangle PBC
+            float A2 = area(x, y, x2, y2, x3, y3);
+
+            // Calculate area of triangle PCD
+            float A3 = area(x, y, x3, y3, x4, y4);
+
+            // Calculate area of triangle PAD
+            float A4 = area(x, y, x1, y1, x4, y4);
+
+            // Check if sum of A1, A2, A3 
+            // and A4is same as A
+            return (A == A1 + A2 + A3 + A4);
+        }
+
+
+        if (check(posA.x, posA.y, posB.x, posB.y, posC.x, posC.y, posD.x, posD.y, positionToCheck.x, positionToCheck.y))
+        {
+            return true;
+        }
+
+        //---------Anzamul Haque Akash-----------------------------End
+
         return false;
     }
 

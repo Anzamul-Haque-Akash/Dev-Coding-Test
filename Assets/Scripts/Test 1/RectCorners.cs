@@ -34,15 +34,17 @@ public class RectCorners : MonoBehaviour
     void FindPoints()
     {
         // TODO: set the positions of a, b, c, d 
-        //Vector2 rectPos = m_Rect.anchoredPosition
+        // Vector2 rectPos = m_Rect.anchoredPosition
 
+        //---------Anzamul Haque Akash-----------------------------Start
+        Vector3[] rectPos = new Vector3[4];
+        m_Rect.GetWorldCorners(rectPos);
 
-        //----------------Anzamul Haque AKash----------------Start
-        a = new Vector2(m_Rect.transform.localPosition.x - 125f, m_Rect.transform.localPosition.y - 225f);
-        b = new Vector2(m_Rect.transform.localPosition.x - 125f, m_Rect.transform.localPosition.y + 225f);
-        c = new Vector2(m_Rect.transform.localPosition.x + 125f, m_Rect.transform.localPosition.y + 225f);
-        d = new Vector2(m_Rect.transform.localPosition.x + 125f, m_Rect.transform.localPosition.y - 225f);
-        //----------------Anzamul Haque AKash----------------End
+        a = new Vector2(rectPos[0].x - 960f, rectPos[0].y - 540f);
+        b = new Vector2(rectPos[1].x - 960f, rectPos[1].y - 540f);
+        c = new Vector2(rectPos[2].x - 960f, rectPos[2].y - 540f);
+        d = new Vector2(rectPos[3].x - 960f, rectPos[3].y - 540f);
+        //---------Anzamul Haque Akash-----------------------------End
 
     }
 
