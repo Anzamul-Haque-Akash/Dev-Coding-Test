@@ -62,7 +62,14 @@ public class Orbiter : MonoBehaviour
 
         //---------Anzamul Haque Akash-----------------------------Start
 
-        transform.RotateAround(GameObject.Find("A").GetComponent<Transform>().transform.position, Vector3.up, m_RPMSpeed  * Time.deltaTime);
+        if (_currentlyRotatingAround == m_AttractorA)
+        {
+            transform.RotateAround(m_AttractorA.transform.position, Vector3.up, m_RPMSpeed * Time.deltaTime);
+        }
+        if (_currentlyRotatingAround == m_AttractorB)
+        {
+            transform.RotateAround(m_AttractorB.transform.position, Vector3.down, m_RPMSpeed * Time.deltaTime);
+        }
 
         //---------Anzamul Haque Akash-----------------------------End
     }
