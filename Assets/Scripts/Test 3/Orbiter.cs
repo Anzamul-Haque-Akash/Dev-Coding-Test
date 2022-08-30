@@ -48,11 +48,6 @@ public class Orbiter : MonoBehaviour
 
         // TODO: Implement rest of the function if needed
 
-        //---------Anzamul Haque Akash-----------------------------Start
-        
-        //---------Anzamul Haque Akash-----------------------------End
-
-
         return true;
     }
 
@@ -62,11 +57,11 @@ public class Orbiter : MonoBehaviour
 
         //---------Anzamul Haque Akash-----------------------------Start
 
-        if (_currentlyRotatingAround == m_AttractorA)
+        if (_currentlyRotatingAround == m_AttractorA) //pointing A object rotation 
         {
             transform.RotateAround(m_AttractorA.transform.position, Vector3.up, m_RPMSpeed * Time.deltaTime);
         }
-        if (_currentlyRotatingAround == m_AttractorB)
+        if (_currentlyRotatingAround == m_AttractorB) //pointing B object rotation 
         {
             transform.RotateAround(m_AttractorB.transform.position, Vector3.down, m_RPMSpeed * Time.deltaTime);
         }
