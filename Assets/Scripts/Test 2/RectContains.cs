@@ -50,23 +50,22 @@ public class RectContains : MonoBehaviour
         static bool check(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, float x, float y)
         {
 
-            // Calculate area of rectangle ABCD
+            //area ABCD
             float A = area(x1, y1, x2, y2, x3, y3) + area(x1, y1, x4, y4, x3, y3);
 
-            // Calculate area of triangle PAB
+            //area XAB
             float A1 = area(x, y, x1, y1, x2, y2);
 
-            // Calculate area of triangle PBC
+            //area XBC
             float A2 = area(x, y, x2, y2, x3, y3);
 
-            // Calculate area of triangle PCD
+            //area XCD
             float A3 = area(x, y, x3, y3, x4, y4);
 
-            // Calculate area of triangle PAD
+            //Area XAD
             float A4 = area(x, y, x1, y1, x4, y4);
 
-            // Check if sum of A1, A2, A3 
-            // and A4is same as A
+            //return true if sum of A + A2 + A3 + A4 == A
             return (A == A1 + A2 + A3 + A4);
         }
 
