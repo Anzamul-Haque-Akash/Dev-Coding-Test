@@ -40,10 +40,10 @@ public class RectCorners : MonoBehaviour
         Vector3[] rectPos = new Vector3[4];
         m_Rect.GetWorldCorners(rectPos);
 
-        a = new Vector2(rectPos[0].x - 960f, rectPos[0].y - 540f);
-        b = new Vector2(rectPos[1].x - 960f, rectPos[1].y - 540f);
-        c = new Vector2(rectPos[2].x - 960f, rectPos[2].y - 540f);
-        d = new Vector2(rectPos[3].x - 960f, rectPos[3].y - 540f);
+        a = new Vector2(rectPos[0].x - Screen.width / 2, rectPos[0].y - Screen.height / 2);
+        b = new Vector2(rectPos[1].x - Screen.width / 2, rectPos[1].y - Screen.height / 2);
+        c = new Vector2(rectPos[2].x - Screen.width / 2, rectPos[2].y - Screen.height / 2);
+        d = new Vector2(rectPos[3].x - Screen.width / 2, rectPos[3].y - Screen.height / 2);
         //---------Anzamul Haque Akash-----------------------------End
 
     }
