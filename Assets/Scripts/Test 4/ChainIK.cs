@@ -5,67 +5,47 @@ public class ChainIK : MonoBehaviour
 
     [SerializeField] private Transform m_Target;
 
-
     // TODO: implement chain ik system where the tip of the chain follows the m_Target
 
     //Anzamul Haque Akash------------------------------------------------------------------------------------------------Start
     [SerializeField] private GameObject[] m_chain; //Here I store chain objects
-    private double m_distanceStartFromGoal; // Distance Start From Goal variable
-    [Range(1,30)]
-    [SerializeField] private int m_topNodespeed;
-    Vector3 m_topNodeLookTargetDirection;
+    [Range(1,20)]
+    [SerializeField] private int m_topNodespeed; //Speed Range value(top node)
 
     //Fixed Update function
     private void FixedUpdate()
     {
-        if (Input.GetMouseButton(0)) //Left mouse button click
-        {
-            ChainMoveIK();
-        }
-        else if(Vector3.Distance(m_chain[0].transform.position, m_chain[6].transform.position) > 12f) //Set start node to top node in 12.. distance if goal distance > 12.. from start
-        {
-            m_topNodeLookTargetDirection = (m_chain[0].transform.position - m_chain[6].transform.position).normalized;
-            m_chain[6].transform.Translate(m_topNodeLookTargetDirection * Time.deltaTime * m_topNodespeed);
-        }
-
-
-
-        //If start to goal distance lesser then total chain distance this function is call
-        if (Vector3.Distance(m_chain[0].transform.position, m_Target.transform.position) < 12f && Vector3.Distance(m_chain[6].transform.position, m_Target.transform.position) > 0.4f)
+        
+        //If start to goal distance < then total chain distance this function is call
+        if (Vector3.Distance(m_chain[0].transform.position, m_Target.position) < 12f && Vector3.Distance(m_chain[6].transform.position, m_Target.transform.position) > 0.4f)
         {
             DistanceLesserThenTotalChainDistance();
         }
-        //##########################################################################################
-
-    }
-    //================
-    private void ChainMoveIK() //Chain Move function
-    {
-        m_distanceStartFromGoal = Vector3.Distance(m_Target.transform.position, m_chain[0].transform.position); //Calculate start to goal distance
-
-        if(m_distanceStartFromGoal >= 12f) //start to goal distance bigger then total chain distance 
+        //If start to goal distance > then total chain distance this function is call
+        if (Vector3.Distance(m_chain[0].transform.position, m_Target.position) != Vector3.Distance(m_chain[0].transform.position, m_chain[6].transform.position) + Vector3.Distance(m_chain[6].transform.position, m_Target.position))
         {
-            DistanceBiggerThenTotalChainDistance();
+            if (Vector3.Distance(m_Target.transform.position, m_chain[0].transform.position) > 12f){
+                DistanceBiggerThenTotalChainDistance();
+            }
         }
+
+        m_chain[6].transform.LookAt(m_Target.position); //Always top node look at the target node.
+
     }
     //================
     private void DistanceBiggerThenTotalChainDistance() //If start to goal distance bigger then total chain distance this function is call
     {
-        float m_stopDistance = Vector3.Distance(m_chain[0].transform.position, m_Target.transform.position) - 12f;
+        Vector3 velocity = Vector3.zero;
+        m_chain[6].transform.position = Vector3.SmoothDamp(m_chain[6].transform.position, m_Target.position, ref velocity, 0.1f);
 
-        if (Vector3.Distance(m_chain[6].transform.position, m_Target.transform.position) > m_stopDistance){
-
-            m_topNodeLookTargetDirection = (m_Target.position - m_chain[6].transform.position).normalized;
-            m_chain[6].transform.Translate(m_topNodeLookTargetDirection * Time.deltaTime * m_topNodespeed);
-        }
     }
     //================
 
     //================
     private void DistanceLesserThenTotalChainDistance() //If start to goal distance lesser then total chain distance this function is call
     {
-        m_topNodeLookTargetDirection = (m_Target.position - m_chain[6].transform.position).normalized;
-        m_chain[6].transform.Translate(m_topNodeLookTargetDirection * Time.deltaTime * m_topNodespeed);
+        Vector3 velocity = Vector3.zero;
+        m_chain[6].transform.position = Vector3.SmoothDamp(m_chain[6].transform.position, m_Target.position, ref velocity, 0.05f);
     }
     //================
     //Anzamul Haque Akash------------------------------------------------------------------------------------------------End
