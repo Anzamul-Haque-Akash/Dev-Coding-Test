@@ -288,7 +288,7 @@ MonoBehaviour:
   - {fileID: 1323714045}
   - {fileID: 888929742}
   - {fileID: 105409972}
-  m_topNodespeed: 50
+  m_topNodespeed: 20
 --- !u!4 &330867777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5556374175503931409, guid: 1f45a53a9cf0f4fc9ad3df46f2207909, type: 3}
