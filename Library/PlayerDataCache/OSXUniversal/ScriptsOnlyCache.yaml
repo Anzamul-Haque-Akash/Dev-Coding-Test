@@ -1140,4 +1140,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/02 - Point Inside Rect.unity
   - Assets/Scenes/03 - Rotate Around.unity
   - Assets/Scenes/04 - Chain IK.unity
-  playerPath: /Users/anazamulhaqueakash/Desktop/Test 1 Buld File/Mac.app
+  playerPath: /Users/anazamulhaqueakash/Desktop/Mac.app

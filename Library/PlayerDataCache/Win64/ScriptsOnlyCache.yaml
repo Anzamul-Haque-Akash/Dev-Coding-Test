@@ -1140,5 +1140,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/02 - Point Inside Rect.unity
   - Assets/Scenes/03 - Rotate Around.unity
   - Assets/Scenes/04 - Chain IK.unity
-  playerPath: /Users/anazamulhaqueakash/Desktop/Test 1 Buld File/Windows/Windows/Dev
-    Test.exe
+  playerPath: /Users/anazamulhaqueakash/Desktop/Windows/Dev Test.exe
