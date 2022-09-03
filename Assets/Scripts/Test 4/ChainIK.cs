@@ -14,12 +14,12 @@ public class ChainIK : MonoBehaviour
     {
         ChildNodeUpdatePosition(); //Child Nodes update position function call
 
-        //If start to goal distance < then total chain distance this function is call
+        //If start to goal distance < then total chain distance then this function is call
         if (Vector3.Distance(m_chain[0].transform.position, m_Target.position) < 12f)
         {
             DistanceLesserThenTotalChainDistance();
         }
-        //If start to goal distance > then total chain distance this function is call
+        //If start to goal distance > then total chain distance then this function is call
         if (Vector3.Distance(m_chain[0].transform.position, m_Target.position) > 12f)
         {
             if (Input.GetMouseButton(0))
@@ -34,7 +34,7 @@ public class ChainIK : MonoBehaviour
         }
     }
     //================
-    private void DistanceBiggerThenTotalChainDistance() //If start to goal distance bigger then total chain distance this function is call
+    private void DistanceBiggerThenTotalChainDistance() //If start to goal distance bigger then total chain distance then this function is call
     {
         m_chain[6].transform.LookAt(m_Target.position); //Always top node look at the target node.
         Vector3 velocity = Vector3.zero;
@@ -43,7 +43,7 @@ public class ChainIK : MonoBehaviour
     //================
 
     //================
-    private void DistanceLesserThenTotalChainDistance() //If start to goal distance lesser then total chain distance this function is call
+    private void DistanceLesserThenTotalChainDistance() //If start to goal distance lesser then total chain distance then this function is call
     {
         m_chain[6].transform.LookAt(m_Target.position); //Always top node look at the target node.
         Vector3 velocity = Vector3.zero;
